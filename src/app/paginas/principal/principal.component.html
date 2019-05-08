@@ -1,0 +1,24 @@
+
+<h1>
+  Meu Personagem Favorito
+</h1>
+<img width="300" alt="Baby Groot" [src]="imagem" *ngIf="imagemVisivel">
+<p>Nome do Personagem: {{personagem}}</p>
+<p>Filme: {{getFilme()}}</p>
+<p>Algo pra digitar</p>
+<input [ngClass]="{'borda-red':meuNome=='', 'borda-green':meuNome!=''}" [(ngModel)]="meuNome">
+<p>Lista Poderes:</p>
+<select #poder>
+  <option value="Regeneração">Regeneração</option>
+  <option value="Elasticidade">Elasticidade</option>
+  <option value="Absorver Madeira">Absorver Madeira</option>
+</select>
+<br><br>
+<button (click)="getPoder(poder.value)">Exibir Poder!</button>
+<h2>
+  Amigos do {{personagem}}
+</h2>
+<p *ngFor="let amigos of nomesAmigos">{{amigos}}</p>
+
+<button [ngStyle]="{'color': (imagemVisivel ? 'red' : 'green')}"
+   (click)="aparecerImagem()">BUM!</button>
