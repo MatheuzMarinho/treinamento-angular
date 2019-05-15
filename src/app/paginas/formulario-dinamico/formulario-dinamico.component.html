@@ -1,0 +1,22 @@
+<form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
+    <div *ngFor="let form_elem of formulario">
+        <div [ngSwitch]="form_elem.tipo">
+            <div *ngSwitchCase="'text'"  class="form-group">
+                <label >{{form_elem.label}}</label>
+                <input type="text" class="form-control" formControlName="{{form_elem.label}}" >                
+            </div>
+            <div *ngSwitchCase="'select'" class="form-group">
+                <label for="tipo">{{form_elem.label}}</label>
+                <select class="form-control" formControlName="{{form_elem.label}}">
+                    <option *ngFor="let valor of form_elem.valores">
+                        {{valor}}
+                    </option>
+                </select>
+            </div>
+        </div>  
+    </div>  
+  <button type="submit"  class="btn btn-primary mt-4" >Salvar</button>
+</form>
+
+
+

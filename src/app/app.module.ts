@@ -7,18 +7,22 @@ import { PrincipalComponent } from './paginas/principal/principal.component';
 import { HeaderComponent } from './componentes/header/header.component';
 import { FormularioComponent } from './paginas/formulario/formulario.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioDinamicoComponent } from './paginas/formulario-dinamico/formulario-dinamico.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PrincipalComponent,
     HeaderComponent,
-    FormularioComponent
+    FormularioComponent,
+    FormularioDinamicoComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
