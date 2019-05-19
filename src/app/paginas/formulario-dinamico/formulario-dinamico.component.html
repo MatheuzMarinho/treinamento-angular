@@ -1,22 +1,55 @@
-<form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
-    <div *ngFor="let form_elem of formulario">
-        <div [ngSwitch]="form_elem.tipo">
-            <div *ngSwitchCase="'text'"  class="form-group">
-                <label >{{form_elem.label}}</label>
-                <input type="text" class="form-control" formControlName="{{form_elem.label}}" >                
+<div class="col-12">
+    <form [formGroup]="myFormGroup" (ngSubmit)="onSubmit()">
+        <div class="card">
+            <div class="card-header">Campos Estáticos</div>
+            <div class="card-body">
+                <div *ngFor="let form_elem of formulario">
+                    <div [ngSwitch]="form_elem.tipo">
+                        <div *ngSwitchCase="'input'" class="form-group">
+                            <label>{{form_elem.label}}</label>
+                            <input type="{{form_elem.tipoInput}}" class="form-control" formControlName="{{form_elem.label}}">
+                        </div>
+                        <div *ngSwitchCase="'select'" class="form-group">
+                            <label for="tipo">{{form_elem.label}}</label>
+                            <select class="form-control" formControlName="{{form_elem.label}}">
+                                <option value="{{valor}}" *ngFor="let valor of form_elem.valores">
+                                    {{valor}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div *ngSwitchCase="'select'" class="form-group">
-                <label for="tipo">{{form_elem.label}}</label>
-                <select class="form-control" formControlName="{{form_elem.label}}">
-                    <option *ngFor="let valor of form_elem.valores">
-                        {{valor}}
-                    </option>
-                </select>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <label>Campos Dinamicos</label>
             </div>
-        </div>  
-    </div>  
-  <button type="submit"  class="btn btn-primary mt-4" >Salvar</button>
-</form>
-
-
-
+            <div formArrayName="extras">
+                <div class="row">
+                    <div class="col-6 card-body" *ngFor="let contact of extraList.controls; let i = index;">
+                        <div [formGroupName]="i" class="row">
+                            <div class="form-group col-6">
+                                <label>Name</label>
+                                <input class="form-control" formControlName="name" type="text">
+                            </div>
+                            <div class="form-group col-6">
+                                <label>Valor</label>
+                                <input class="form-control" formControlName="value" type="text">
+                            </div>
+                            <div class="form-group col-12 ">
+                                <button class="btn btn-danger col-12" type="button" (click)="removeExtra(i)"> Remover
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary col-6">Salvar</button>
+            <button class="btn btn-primary col-6" type="button" (click)="addExtra()"> Adicionar Extra</button>
+        </div>
+    </form>
+</div>

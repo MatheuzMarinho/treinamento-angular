@@ -19,7 +19,7 @@ export class FormularioComponent implements OnInit {
  
   createForm(cliente: Cliente) {
     this.formCliente = this.formBuilder.group({
-      nome: [cliente.nome, Validators.required],
+      nome: ['Matheus', Validators.required],
       tipo: [cliente.tipo],
       genero: [cliente.genero],
       observacao: [cliente.observacao],
