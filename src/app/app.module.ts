@@ -9,6 +9,9 @@ import { FormularioComponent } from './paginas/formulario/formulario.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormularioDinamicoComponent } from './paginas/formulario-dinamico/formulario-dinamico.component'
+import { HttpClientModule }    from '@angular/common/http';
+import { ListagemClientesComponent } from './paginas/listagem-clientes/listagem-clientes.component';
+import { DetalhesClienteComponent } from './paginas/detalhes-cliente/detalhes-cliente.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { FormularioDinamicoComponent } from './paginas/formulario-dinamico/formu
     PrincipalComponent,
     HeaderComponent,
     FormularioComponent,
-    FormularioDinamicoComponent
+    FormularioDinamicoComponent,
+    ListagemClientesComponent,
+    DetalhesClienteComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

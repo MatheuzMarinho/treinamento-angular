@@ -1,0 +1,29 @@
+<div class="col-lg-12">
+  <div class="card card-default">
+        <div class="card-header">
+                <i class="fa fa-clock-o fa-fw"></i> Listagem Clientes
+            </div>
+        <div class="card-body table-responsive">
+          <table class="table">
+              <thead>
+              <tr>
+                  <th>Nome</th>
+                  <th>Tipo</th>
+                  <th>Genero</th>
+                  <th>Observação</th>
+                  <th>Inativo</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr style="cursor: pointer;" [routerLink]="['/detalhes-cliente', cliente.nome]" *ngFor="let cliente of clientes">
+                  <td>{{cliente.nome}}</td>
+                  <td>{{cliente.tipo}}</td>
+                  <td>{{cliente.genero}}</td>
+                  <td>{{cliente.observacao}}</td>
+                  <td>{{cliente.inativo}}</td>
+              </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
