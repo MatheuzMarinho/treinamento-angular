@@ -12,6 +12,7 @@ import { FormularioDinamicoComponent } from './paginas/formulario-dinamico/formu
 import { HttpClientModule }    from '@angular/common/http';
 import { ListagemClientesComponent } from './paginas/listagem-clientes/listagem-clientes.component';
 import { DetalhesClienteComponent } from './paginas/detalhes-cliente/detalhes-cliente.component';
+import { CadastroComponent } from './paginas/TipoCadastro/cadastro/cadastro.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DetalhesClienteComponent } from './paginas/detalhes-cliente/detalhes-cl
     FormularioComponent,
     FormularioDinamicoComponent,
     ListagemClientesComponent,
-    DetalhesClienteComponent
+    DetalhesClienteComponent,
+    CadastroComponent
   ],
   imports: [
     BrowserModule,
